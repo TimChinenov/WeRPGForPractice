@@ -1,8 +1,10 @@
 // include libraries
 #include <iostream>
 #include <string>
-
 //include headers below here
+#include "stat.h"
+#include "item.h"
+#include "character.h"
 
 //prototyp functions below
 char save_or_load();
