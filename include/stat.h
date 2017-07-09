@@ -3,17 +3,19 @@
 #include <iostream>
 class Stat{
 public:
-  int Level;
-  int HP;//current health
-  int mxHP;//health cap
-  int Defence;//if the attack from the enemy does not surpass the defence of the attacke, the move does no damage
-  int Attack_Mod;//crit chance
+  	int Level;
+  	int HP;
+  	int mxHP;
+	int Defence;
+	int Attack_Mod;
 
 	Stat();
+	~Stat();
 	Stat(int lvl,int hp,int max, int dex, int crit);
 	Stat operator+(Stat b);
 	Stat operator-(Stat d);
-	void getStats(); 
+	void getStats();
+	void setStat(int item_lvl,int hp_bst,int hpCap_bst,int dfn_bst, int crit);
 };
 
 #endif 
