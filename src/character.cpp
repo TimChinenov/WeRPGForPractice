@@ -82,8 +82,9 @@ void character::exchange(Item i){//function to exhange new item for item already
 	
 }
 void character::dequip(int item_slot){//function that removes item from equipment list
-	this->equip_stat = this->equip_stat - this->eq.equips[item_slot]->getStat();
-	delete this->eq.equips[item_slot];
+	this->equip_stat = this->equip_stat - this->eq.equips[item_slot]->getStat();//update equipment stat
+	delete this->eq.equips[item_slot];//delete the item object from the list
+	this->eq.has_item[item_slot] = false;//set the slot to open
 }
 Hero::Hero(std::string n):character(n){//Hero Constructor
 	this->expr = 0;
