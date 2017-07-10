@@ -15,6 +15,13 @@ public:
 	int damage();//damage() is overided, see action.cpp
 	std::string getName(){return name;}
 };
+class spell:public Action{
+ public:
+  spell();
+  int damage();
+  void effect();
+  std::string getName()const{return name;};
+};
 struct Movelist
 {
 	Action* actions[5];//array of 5 Action pointers represents characters "Movelist"

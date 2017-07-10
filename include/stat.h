@@ -13,7 +13,7 @@ public:
 	Stat(int lvl,int hp,int max, int dex, int crit);
 	Stat operator+(Stat b);
 	Stat operator-(Stat d);
-	void getStats(); 
+	void getStats();
 };
 
 #endif 

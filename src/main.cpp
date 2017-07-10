@@ -14,7 +14,7 @@ void starting_game(char choice);
 
 //Start main here
 int main (int argc, char* argv[]) {
-  char choice; //This variable holds results of deccistions made
+  char choice; //This variable holds results of decisions made
   choice = save_or_load();//get user choice
   starting_game(choice);
 }
