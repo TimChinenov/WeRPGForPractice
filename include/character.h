@@ -14,11 +14,23 @@ protected:
   Movelist moves;//list of moves
 public: 
   character(std::string n);
-  void dmgTaken(int damage);//damage calculation
-  void updateStats();//update stats when equipment is put on/taken off
-  void equip(Item i);//<- says it
-  void de_equip(Item i);//<- "  "
-  void levelUp();//changes base stats after leveling up
+  virtual ~character();
+  int attack(Action* move);//Damage given
+  void dmgTaken(int damage);//Damage taken
+  void equip(Item i);//Equip Item
+  void exchange(Item i);//Switch with existing item
+  void dequip(int item_slot);//Remove item from equipment
+};
+class Hero : public character{
+protected:
+  int expr;//experience
+  int expr_cap;//experience cap
+public:
+  Hero(std::string n);
+  ~Hero();
+  void exp_update(int gain);//calculates exp gain
+  void levelUp();//<- self explanitory
+
 };
 
 #endif 

@@ -4,15 +4,46 @@
 #include <iostream>
 class Action{
 protected:
-	std::string name;//name of move
+	std::string name;
 public:
-	virtual int damage();//default damage, unless overided
-	std::string getName(){return name;}//returns name of the action
+	virtual ~Action();
+	virtual int damage()=0;
+	virtual std::string getName(){}
 };
 class weakHit:public Action{
 public:
 	weakHit();
-	int damage();//damage() is overided, see action.cpp
+	~weakHit();
+	int damage();
+	std::string getName(){return name;}
+};
+class throwShade:public Action{
+public:
+	throwShade();
+	~throwShade();
+	int damage();
+	std::string getName(){return name;}
+};
+class cast_plague:public Action{
+public:
+	//damage over time, let's make that happen
+	cast_plague();
+	~cast_plague();
+	int damage();
+	std::string getName(){return name;}
+};
+class fisticuff:public Action{
+public:
+	fisticuff();
+	~fisticuff();
+	int damage();
+	std::string getName(){return name;}
+};
+class milly_Rock:public Action{
+public:
+	milly_Rock();
+	~milly_Rock();
+	int damage();
 	std::string getName(){return name;}
 };
 class spell:public Action{
@@ -24,10 +55,9 @@ class spell:public Action{
 };
 struct Movelist
 {
-	Action* actions[5];//array of 5 Action pointers represents characters "Movelist"
+	Action* actions[5];
 	Movelist(){
-		actions[0] = new weakHit();//initialize weakhit as a default 
-		//std::cout << "movelist created\n";
+		actions[0] = new weakHit();
 	}
 };
 
