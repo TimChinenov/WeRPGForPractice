@@ -1,8 +1,8 @@
 #File names
-EXECUTABLE := TextRPG
+EXECUTABLE := TextRPG.exe
 
 #Just add the filename without file descriptor here
-FIL := main testMain action item character stat
+FIL := main action item character stat
 
 #File Directories
 SRC_DIR := src/

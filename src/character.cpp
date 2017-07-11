@@ -34,7 +34,7 @@ void character::equip(Item i){//function to equip item to character equipment
 	bool empty_spot = false;//key that checks if we found an open slot in the equipment list
 	int x=0;
 	while(!empty_spot){//while a slot hasn't been found
-		if(x=5){//if you've gone beyond the list
+		if(x==5){//if you've gone beyond the list
 			exchange(i);//exchange this item for another already equiped
 			empty_spot = true;//exit loop key
 		}

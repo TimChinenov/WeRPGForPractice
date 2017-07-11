@@ -2,7 +2,8 @@
 #include <iostream>
 #include <string>
 int Action::damage(){
-	//pure virtual function
+  //pure virtual function
+  return 0;
 }
 Action::~Action(){}
 
