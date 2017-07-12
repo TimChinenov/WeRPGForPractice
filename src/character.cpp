@@ -3,9 +3,18 @@
 #include <string>
 #include <ctime>
 #include <stdlib.h>
+
+using namespace std;
+
 character::character(std::string n) {//character base constructor
 	name = n;
+	stats = Stat();
+	equip_stat = Stat();
+	eq = Equipment();
+	moves = Movelist();
+	
 	std::cout << "Your character's name is " << name <<"\n";
+	
 }
 character::~character(){}//base destructor
 int character::attack(Action* move){//function to initiate attack move

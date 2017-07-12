@@ -14,7 +14,7 @@ INC_DIR := include/
 CXX:= g++
 
 #Compiler Flags
-CXXFLAGS := -I$(INC_DIR) -Wall
+CXXFLAGS := -I$(INC_DIR) -Wall -std=c++11
 
 #Add the necessary path information and file descriptors
 SRC := $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FIL)))
