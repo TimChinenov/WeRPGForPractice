@@ -2,14 +2,13 @@
 #define STAT_H   //   #define this so the compiler knows it has been included
 #include <iostream>
 class Stat{
-public:
+ public:
   	int Level;
   	int HP;
   	int mxHP;
 	int Defence;
-	int Attack_Mod;
-
-	Stat();
+	int Crit;
+        Stat():Stat(1, 5, 5, 0, 0){};
 	~Stat();
 	Stat(int lvl,int hp,int max, int dex, int crit);
 	Stat operator+(Stat b);

@@ -35,7 +35,7 @@ $(EXECUTABLE): $(OBJ)
 
 $(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@echo Compiling $(notdir $<)
-	$(CXX) -MMD -c $(CXXFLAGS) -o $@ $<
+	@$(CXX) -MMD -c $(CXXFLAGS) -o $@ $<
 
 clean:
 	@echo Removing $(notdir $(OBJ) $(EXE_FIL))

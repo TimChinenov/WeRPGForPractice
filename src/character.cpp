@@ -20,7 +20,7 @@ character::~character(){}//base destructor
 int character::attack(Action* move){//function to initiate attack move
 	int crit_dmg = 0;
 	srand(time(NULL));//get's random seed
-	int chance = this->equip_stat.Attack_Mod + this->stats.Attack_Mod;
+	int chance = this->equip_stat.Crit + this->stats.Crit;
 	for(int i=0;i<chance;i++){//the each point in Attack Mod is another chance to crit
 		int random = rand()%20 +1; //picks a number from 1-20
 		if(random>15) crit_dmg += move->damage() / 4;//if it's 16 or above, it crits
