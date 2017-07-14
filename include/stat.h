@@ -2,6 +2,17 @@
 #define STAT_H   //   #define this so the compiler knows it has been included
 #include <iostream>
 
+/*
+So basically stats are broken down into 2 forms, stats for
+characters and stats for items. They are essentially the same
+class, but will be used somewhat differently. The level on
+items will be a sort of glass cieling, preventing characters
+that aren't at or above the level of the item to use it.
+The rest are used to add something to the character's stats.
+Been meaning to redo stats though, I feel like I focused too
+much on defence without thinking about offensive stats.
+*/
+
 class Stat{
  public:
   	int Level;

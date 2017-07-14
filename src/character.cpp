@@ -12,9 +12,9 @@ character::character(std::string n) {//character base constructor
 	equip_stat = Stat();
 	eq = Equipment();
 	moves = Movelist();
-	
-	std::cout << "Your character's name is " << name <<"\n";
-	
+
+	// std::cout << "Your character's name is " << name <<"\n";
+
 }
 character::~character(){}//base destructor
 int character::attack(Action* move){//function to initiate attack move
@@ -39,7 +39,7 @@ void character::dmgTaken(int damage){//function to calculate damage taken
 		std::cout << "you took " << damage << " damage.\n";
 	}
 }
-void character::equip(Item i){//function to equip item to character equipment 
+void character::equip(Item i){//function to equip item to character equipment
 	bool empty_spot = false;//key that checks if we found an open slot in the equipment list
 	int x=0;
 	while(!empty_spot){//while a slot hasn't been found
@@ -88,7 +88,7 @@ void character::exchange(Item i){//function to exhange new item for item already
 			this->eq.has_item[input] = true;
 		}
 	}
-	
+
 }
 void character::dequip(int item_slot){//function that removes item from equipment list
 	this->equip_stat = this->equip_stat - this->eq.equips[item_slot]->getStat();//update equipment stat
