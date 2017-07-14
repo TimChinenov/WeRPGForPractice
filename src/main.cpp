@@ -9,6 +9,7 @@
 //prototyp functions below
 char save_or_load();
 void starting_game(char choice);
+void process_command(char com);
 // ============================================================================
 // ============================================================================
 
@@ -17,6 +18,13 @@ int main (int argc, char* argv[]) {
   char choice; //This variable holds results of deccistions made
   choice = save_or_load();//get user choice
   starting_game(choice);
+
+  while (true){
+    char response;
+    std::cout << "What would you like to do?";
+    std::cin << response;
+    process_command(response);
+  }
 }
 
 
@@ -47,4 +55,39 @@ void starting_game(char choice)
   {
     std::cout << "LOL can you not follow basic instructions?";
   }
+}
+
+void process_command(char com)
+{
+  if (com == 'save' || com == 'S' || com == 's' || com == 'Save')
+  {
+    std::cout << "beging saving process";
+  }
+  else if (com == 'exit' || com == 'Exit')
+  {
+    std::cout << "exit game";
+    //I imagine that the command below is what we ultimately will want to use
+    //to kill the process. However, we will have to call appropriate destructors
+    //before doing so.
+    //std::exit;
+  }
+  else if (com == 'help')
+  {
+    Help();
+  }
+}
+
+std::String Help()
+{
+  std::cout << "The following is help text.\n";
+  std::cout << "The following commands are available to you.\n";
+  std::cout << "Save\n";
+  std::cout << "Alternatives: 'save', 's', 'S'\n";
+  std::cout << "Saves all current information into a file that you can load"
+               "later on in the game. This command can be run at any point"
+               "When the option to input information is present.\n\n";
+  std::cout << "Exit\n";
+  std::cout << "Alternatives: 'exit'\n";
+  std::cout << "Exits the game without saving data."
+  return;
 }
