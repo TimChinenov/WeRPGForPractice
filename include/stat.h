@@ -15,10 +15,7 @@ public:
 	Stat operator+(Stat b);
 	Stat operator-(Stat d);
 	void getStats();
-<<<<<<< HEAD
-=======
 	void setStat(int item_lvl,int hp_bst,int hpCap_bst,int dfn_bst, int crit);
->>>>>>> a9921351fcd512c676b40fb8bdbb5741886ffae1
 };
 
 #endif 

@@ -8,7 +8,7 @@ protected:
 public:
 	virtual ~Action();
 	virtual int damage()=0;
-	virtual std::string getName(){}
+	virtual std::string getName();
 };
 class weakHit:public Action{
 public:
