@@ -1,0 +1,34 @@
+#ifndef SPELL_H
+#define SPELL_H
+
+//C Includes
+
+
+//C++ Includes
+#include <string>
+
+//Custom Includes
+
+
+
+class Spell{
+ private:
+  std::string effect_desc;
+ public:
+  Spell(){effect_desc = "";};
+  Spell(std::string effect_desc){this->effect_desc = effect_desc;};
+  std::string toString(){return this->effect_desc;};
+};
+
+class DamagingSpell:public Magic{
+ private:
+  unsigned int damage;
+ public:
+ CombatSpell():
+};
+
+
+
+
+
+#endif

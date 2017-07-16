@@ -48,13 +48,6 @@ public:
 	int damage();
 	std::string getName(){return name;}
 };
-class spell:public Action{
- public:
-  spell();
-  virtual int damage();
-  virtual void effect();
-  std::string getName(){return name;};
-};
 struct Movelist
 {
 	Action* actions[5];

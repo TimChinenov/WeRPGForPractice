@@ -25,7 +25,7 @@ throwShade::~throwShade(){}
 int throwShade::damage(){
 		int num = rand()%5;
 		std::cout << "You threw shade at your enemy, way to go...\n";
-		srd::cout << num << " damage\n";
+		std::cout << num << " damage\n";
 		return num;
 }
 
