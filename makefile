@@ -1,8 +1,8 @@
 #File names
-EXECUTABLE := TextRPG
+EXECUTABLE := TextRPG.exe
 
 #Just add the filename without file descriptor here
-FIL := main testMain action item character stat
+FIL := main action item character stat
 
 #File Directories
 SRC_DIR := src/
@@ -14,7 +14,7 @@ INC_DIR := include/
 CXX:= g++
 
 #Compiler Flags
-CXXFLAGS := -I$(INC_DIR) -Wall
+CXXFLAGS := -I$(INC_DIR) -Wall -std=c++11
 
 #Add the necessary path information and file descriptors
 SRC := $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FIL)))
@@ -35,7 +35,7 @@ $(EXECUTABLE): $(OBJ)
 
 $(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@echo Compiling $(notdir $<)
-	$(CXX) -MMD -c $(CXXFLAGS) -o $@ $<
+	@$(CXX) -MMD -c $(CXXFLAGS) -o $@ $<
 
 clean:
 	@echo Removing $(notdir $(OBJ) $(EXE_FIL))

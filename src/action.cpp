@@ -1,8 +1,10 @@
 #include "action.h"
+#include "stdlib.h"
 #include <iostream>
 #include <string>
 int Action::damage(){
-	//pure virtual function
+  //pure virtual function
+  return 0;
 }
 Action::~Action(){}
 
@@ -11,8 +13,9 @@ weakHit::weakHit(){
 	name = "weakhit";
 }
 int weakHit::damage(){
-		std::cout << "You weak hit her for 2 damage\n";
-		return 2;
+		int num = rand()%2;
+		std::cout << "You weak hit her for " << num<< " damage\n";
+		return num;
 }
 
 throwShade::throwShade(){
@@ -20,8 +23,10 @@ throwShade::throwShade(){
 }
 throwShade::~throwShade(){}
 int throwShade::damage(){
+		int num = rand()%5;
 		std::cout << "You threw shade at your enemy, way to go...\n";
-		return 5;
+		srd::cout << num << " damage\n";
+		return num;
 }
 
 cast_plague::cast_plague(){
@@ -29,8 +34,10 @@ cast_plague::cast_plague(){
 }
 cast_plague::~cast_plague(){}
 int cast_plague::damage(){
+		int num = rand()%4;
 		std::cout << "You casted plague, you dirty animal.\n";
-		return 4;
+		std::cout << num << " damage\n";
+		return num;
 }
 
 fisticuff::fisticuff(){
@@ -38,8 +45,10 @@ fisticuff::fisticuff(){
 }
 fisticuff::~fisticuff(){}
 int fisticuff::damage(){
-		std::cout << "I see you are a person of culture, punched em in the shnoz for 10 damage\n";
-		return 10;
+		int num = rand()%10;
+		std::cout << "I see you are a person of culture, punched em in the shnoz.\n";
+		std::cout << "You did " << num << " damage\n";
+		return num;
 }
 
 milly_Rock::milly_Rock(){
@@ -47,6 +56,7 @@ milly_Rock::milly_Rock(){
 }
 milly_Rock::~milly_Rock(){}
 int milly_Rock::damage(){
-		std::cout << "Since they can't Milly Rock on every block like yourself, enemy takes 8 damage.\n";
-		return 8;
+		int num = rand()%8;
+		std::cout << "Since they can't Milly Rock on every block like yourself, enemy takes "<<num<< " damage.\n";
+		return num;
 }

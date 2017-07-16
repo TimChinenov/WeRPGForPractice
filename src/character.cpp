@@ -3,15 +3,24 @@
 #include <string>
 #include <ctime>
 #include <stdlib.h>
+
+using namespace std;
+
 character::character(std::string n) {//character base constructor
 	name = n;
-	std::cout << "Your character's name is " << name <<"\n";
+	stats = Stat();
+	equip_stat = Stat();
+	eq = Equipment();
+	moves = Movelist();
+
+	// std::cout << "Your character's name is " << name <<"\n";
+
 }
 character::~character(){}//base destructor
 int character::attack(Action* move){//function to initiate attack move
 	int crit_dmg = 0;
 	srand(time(NULL));//get's random seed
-	int chance = this->equip_stat.Attack_Mod + this->stats.Attack_Mod;
+	int chance = this->equip_stat.Crit + this->stats.Crit;
 	for(int i=0;i<chance;i++){//the each point in Attack Mod is another chance to crit
 		int random = rand()%20 +1; //picks a number from 1-20
 		if(random>15) crit_dmg += move->damage() / 4;//if it's 16 or above, it crits
@@ -30,11 +39,11 @@ void character::dmgTaken(int damage){//function to calculate damage taken
 		std::cout << "you took " << damage << " damage.\n";
 	}
 }
-void character::equip(Item i){//function to equip item to character equipment 
+void character::equip(Item i){//function to equip item to character equipment
 	bool empty_spot = false;//key that checks if we found an open slot in the equipment list
 	int x=0;
 	while(!empty_spot){//while a slot hasn't been found
-		if(x=5){//if you've gone beyond the list
+		if(x==5){//if you've gone beyond the list
 			exchange(i);//exchange this item for another already equiped
 			empty_spot = true;//exit loop key
 		}
@@ -79,7 +88,7 @@ void character::exchange(Item i){//function to exhange new item for item already
 			this->eq.has_item[input] = true;
 		}
 	}
-	
+
 }
 void character::dequip(int item_slot){//function that removes item from equipment list
 	this->equip_stat = this->equip_stat - this->eq.equips[item_slot]->getStat();//update equipment stat

@@ -12,7 +12,8 @@ protected:
   Stat equip_stat;//stats from equipment
   Equipment eq;//list of equipment
   Movelist moves;//list of moves
-public: 
+public:
+ character():character(""){};
   character(std::string n);
   virtual ~character();
   int attack(Action* move);//Damage given
@@ -33,4 +34,4 @@ public:
 
 };
 
-#endif 
+#endif

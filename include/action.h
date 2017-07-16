@@ -2,14 +2,16 @@
 #define ACTION_H
 #include <string>
 #include <iostream>
+
 class Action{
 protected:
 	std::string name;
 public:
 	virtual ~Action();
 	virtual int damage()=0;
-	virtual std::string getName();
+	virtual std::string getName()=0;
 };
+
 class weakHit:public Action{
 public:
 	weakHit();
@@ -49,9 +51,9 @@ public:
 class spell:public Action{
  public:
   spell();
-  int damage();
-  void effect();
-  std::string getName()const{return name;};
+  virtual int damage();
+  virtual void effect();
+  std::string getName(){return name;};
 };
 struct Movelist
 {
@@ -61,5 +63,5 @@ struct Movelist
 	}
 };
 
- 
+
 #endif
