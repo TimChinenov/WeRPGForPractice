@@ -2,7 +2,7 @@
 EXECUTABLE := TextRPG.exe
 
 #Just add the filename without file descriptor here
-FIL := main action item character stat
+FIL := main action item character stat magic
 
 #File Directories
 SRC_DIR := src/
