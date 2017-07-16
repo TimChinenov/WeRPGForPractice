@@ -2,6 +2,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
+#include <sstream>
 //include headers below here
 #include "stat.h"
 #include "item.h"
@@ -11,9 +12,11 @@
 using namespace std;
 //prototyp functions below
 
-string save_or_load();
-void starting_game(string choice);
+string Help();
 bool is_valid(string input);
+void process_command(string choice);
+string start_or_load();
+void starting_game(string choice);
 
 // ============================================================================
 // ============================================================================
@@ -21,24 +24,32 @@ bool is_valid(string input);
 //Start main here
 int main (int argc, char* argv[]) {
   string choice; //This variable holds results of decisions made
-  choice = save_or_load();//get user choice
+  choice = start_or_load();//get user choice
   starting_game(choice);
 
   while (true){
-    char response;
-    std::cout << "What would you like to do?";
-    std::cin << response;
+    string response;
+    std::cout << "What would you like to do?" << endl;
+
+    cout << "For possible commands, enter \"Help\"" << endl;
+
+    //Ensures the entered command is a valid entry. Helps prevent machine crashing behaviors
+    do{
+      getline(cin, response);
+    }while(!is_valid(response));
+    
     process_command(response);
   }
+  return 0;
 }
 
 
 //the following function will initiate the basic introduction to the game
-string save_or_load(){
+string start_or_load(){
   string action;
   std::cout << "Welcome to WeRPGForPractice\n";
-  std::cout << "Would you likst to start a new game or load a game [N/L]\n";
   do{
+    std::cout << "Would you like to start a new game or load a game [N/L]\n";
     getline(cin, action);
   }while(!is_valid(action));
 
@@ -66,11 +77,12 @@ void starting_game(string choice)
 }
 
 bool is_valid(string input){
-  //Inpu too long
+  //Input too long
   if(input.length() > 255){
     return false;
   }
   //Checks all characters are alphanumeric or the underscore character
+  //TODO: See if this check does not allow empty string ("")
   regex check("^\\w+");
   if(!regex_match(input.begin(), input.end(), check)){
     return false;
@@ -78,13 +90,13 @@ bool is_valid(string input){
   return true;
 }
 
-void process_command(char com)
+void process_command(string com)
 {
-  if (com == 'save' || com == 'S' || com == 's' || com == 'Save')
+  if (com == "save" || com == "S" || com == "s" || com == "Save")
   {
     std::cout << "beging saving process";
   }
-  else if (com == 'exit' || com == 'Exit')
+  else if (com == "exit" || com == "Exit")
   {
     std::cout << "exit game";
     //I imagine that the command below is what we ultimately will want to use
@@ -92,23 +104,24 @@ void process_command(char com)
     //before doing so.
     //std::exit;
   }
-  else if (com == 'help')
+  else if (com == "help")
   {
     Help();
   }
 }
 
-std::String Help()
+std::string Help()
 {
-  std::cout << "The following is help text.\n";
-  std::cout << "The following commands are available to you.\n";
-  std::cout << "Save\n";
-  std::cout << "Alternatives: 'save', 's', 'S'\n";
-  std::cout << "Saves all current information into a file that you can load"
+  stringstream out;
+  out << "The following is help text.\n";
+  out << "The following commands are available to you.\n";
+  out << "Save\n";
+  out << "Alternatives: 'save', 's', 'S'\n";
+  out << "Saves all current information into a file that you can load"
                "later on in the game. This command can be run at any point"
                "When the option to input information is present.\n\n";
-  std::cout << "Exit\n";
-  std::cout << "Alternatives: 'exit'\n";
-  std::cout << "Exits the game without saving data."
-  return;
+  out << "Exit\n";
+  out << "Alternatives: 'exit'\n";
+  out << "Exits the game without saving data.\n";
+  return out.str();
 }
