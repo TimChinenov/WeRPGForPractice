@@ -17,7 +17,6 @@ Stat::Stat(int lvl,int hp,int max, int dex, int crit){
   mxHP=max;
   Defence=dex;
   Crit=crit;
-  std::cout <<"Stat constructed\n";
 }
 Stat Stat::operator+(Stat item_boost){
   Stat boosted;

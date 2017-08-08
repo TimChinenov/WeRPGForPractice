@@ -93,13 +93,17 @@ void character::exchange(Item i){//function to exhange new item for item already
 void character::dequip(int item_slot){//function that removes item from equipment list
 	this->equip_stat = this->equip_stat - this->eq.equips[item_slot]->getStat();//update equipment stat
 	delete this->eq.equips[item_slot];//delete the item object from the list
+	this->eq.equips[item_slot] = NULL;
 	this->eq.has_item[item_slot] = false;//set the slot to open
+}
+string character::getName(){
+	return name;
 }
 Hero::Hero(std::string n):character(n){//Hero Constructor
 	this->expr = 0;
 	this->expr_cap = 10;
 }
-Hero::~Hero() {}//Hero Destructor
+Hero::~Hero() {cout << "Hero destructor called.\n";}//Hero Destructor
 void Hero::levelUp(){//function to level up Hero
 	Stat lvl_incr(1,3,3,2,0);//base increment of stats, possible change to increase relative to level
 	this->stats = this->stats + lvl_incr;
@@ -113,3 +117,11 @@ void Hero::exp_update(int gain){//function that calculates experience gained
 		this->expr_cap = this->expr_cap * 3;
 	}
 }
+Ghoul::Ghoul():character("Ghoul"){
+	expr = 10;
+}
+Ghoul::Ghoul(int level){
+	this->stats.setStat(level,level*3,level*3,(level-1)*2,level);
+	expr = (10 * level) + level;
+}
+Ghoul::~Ghoul(){cout << "Ghoul vanishes\n";}

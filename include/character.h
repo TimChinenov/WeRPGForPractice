@@ -21,6 +21,7 @@ public:
   void equip(Item i);//Equip Item
   void exchange(Item i);//Switch with existing item
   void dequip(int item_slot);//Remove item from equipment
+  std::string getName();
 };
 class Hero : public character{
 protected:
@@ -32,6 +33,14 @@ public:
   void exp_update(int gain);//calculates exp gain
   void levelUp();//<- self explanitory
 
+};
+class Ghoul : public character{
+protected:
+  int expr;
+public:
+  Ghoul();
+  Ghoul(int level);
+  ~Ghoul();
 };
 
 #endif
