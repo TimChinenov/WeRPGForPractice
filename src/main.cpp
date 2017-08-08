@@ -122,7 +122,7 @@ void process_command(string com)
     Help();
   }
   else if(com == "fight"){
-    inBattle();
+    //inBattle();
   }
 }
 
@@ -192,5 +192,5 @@ void stage1(Hero &myHero){
   loadS("../lib/awoke.txt");
 }
 void inBattle(Hero &myHero,character &enemy){
-  
+  ;
 }
